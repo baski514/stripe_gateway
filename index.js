@@ -1,6 +1,7 @@
 const stripe = require('stripe')('sk_test_51JGIo1SBpHKZJ9YR3S6ZddcbJnmL7vhbFkH6v3razColNsgqKJAG7TQnKDHypfXtQFvjQgr0DpYCdUJxegIPf64X00NHpx1296');
 const express = require('express');
 const app = express();
+const path = require ('path');
 
 app.use(express.static('.'));
 app.use (express.json ());
@@ -8,6 +9,13 @@ app.use (express.json ());
 
 const YOUR_DOMAIN = 'http://localhost:3000/checkout';
 const endpointSecret = 'whsec_h...';
+
+app.use (express.static (path.join (__dirname, './Client/build')));
+
+app.get ('/', (req, res) => {
+  res.sendFile (path.join (__dirname, './build/index.html'));
+});
+
 
 
 app.post('/create-checkout-session', async (req, res) => {

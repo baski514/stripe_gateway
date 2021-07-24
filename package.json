@@ -4,11 +4,12 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^1.0.0",
     "@stripe/stripe-js": "^1.0.0",
+    "concurrently": "4.1.2",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.4.0",
-    "concurrently": "4.1.2",
-    "express": "^4.17.1",
     "stripe": "^7.1.0"
   },
   "homepage": "http://localhost:3000/checkout",
@@ -18,8 +19,7 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "install-client": "npm install",
-    "heroku-postbuild": "npm run install-client && npm run build"
-
+    "heroku-postbuild": "npm run install-client && npm run build && npm run client"
   },
   "eslintConfig": {
     "extends": "react-app"
